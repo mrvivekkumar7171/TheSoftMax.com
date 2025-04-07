@@ -6,6 +6,10 @@ name: Security Check
 # Runs security checks every time you push code to the main branch, Schedules weekly scans automatically, Uses CodeQL, 
 # a tool from GitHub to find vulnerabilities.
 
+permissions:
+  contents: read
+  security-events: write
+
 on:
   push:
     branches: [ main ]
