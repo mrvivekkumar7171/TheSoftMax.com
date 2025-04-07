@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--favicon-->
+        <link rel="icon" href="favicon.svg" type="image/x-icon">
+        
+        <!-- Clickjacking Protection : Prevents your website from being embedded in iframes, protecting against clickjacking attacks. -->
+        <meta http-equiv="X-Frame-Options" content="DENY">
+        <!-- Disable Source Code Viewing (Advanced): Content Security Policy (CSP): Prevents XSS attacks by controlling what scripts can run-->
+
+        <!-- How SEO (Search Engine Optimization) Works: It helps your website rank higher in search engines like Google.
+        ########On-Page SEO (things you control on your website): Meta Tags (like description, keywords), Headings (H1, H2, H3) structure, 
+        URL structure (clean, readable URLs), Alt Text for Images (descriptions for images), Fast Loading Speed (optimize images, 
+        lazy loading), Mobile-Friendly Design, Internal Linking (linking between pages on your site)
+        ########Off-Page SEO (things outside your website): Backlinks (getting other sites to link to yours), Social Media Shares, Guest Blogging etc.
+        Add Google Analytics to track visitor data, Submit your site to Google Search Console to help Google index it faster, Create an XML Sitemap and submit it to search engines -->
+        
+        <!-- SEO Meta Tags
+        description: A brief summary of your website (shows up on search results)
+        keywords: Relevant keywords (less important today but still useful)
+        author: Specifies the author of the website
+        robots: Tells search engines to index your site and follow links -->
+        <meta name="description" content="Explore Data Science research, AI, ML topics, and more at The Softmax. Discover insights, tutorials, and case studies.">
+        <meta name="keywords" content="AI, Machine Learning, Data Science, The Softmax, Research, Analytics, Artificial Intelligence, Deep Learning">
+        <meta name="author" content="Vivek Kumar">
+        <meta name="robots" content="index, follow">
+
+        <!-- PWA (Progressive Web App): Make your site installable like an app. Add a manifest.json and a service worker. -->
+
+        <!--========== BOX ICONS ==========-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="assets/css/styles1.css">
+
+        <title>Resume CV</title>
+    </head>
+    <body>
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="./Vivek-Kumar.html" class="nev__logo">Vivek</a>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">
+                                <i class='bx bx-home nav__icon'></i>Home
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#profile" class="nav__link">
+                                <i class='bx bx-user nav__icon' ></i>Profile
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#education" class="nav__link">
+                                <i class='bx bx-book nav__icon' ></i>Education
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#skills" class="nav__link">
+                                <i class='bx bx-receipt nav__icon' ></i>Skills
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#experience" class="nav__link">
+                                <i class='bx bx-briefcase-alt nav__icon' ></i>Experience
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#certificates" class="nav__link">
+                                <i class='bx bx-award nav__icon'></i>Certificates
+                            </a>
+                        </li>
+
+<!--                         <li class="nav__item">
+                            <a href="#references" class="nav__link">
+                                <i class='bx bx-link-external nav__icon'></i>References
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt' ></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main bd-container">
+            <!-- All elements within this div, is generated in PDF -->
+            <div class="resume" id="area-cv">
+                <div class="resume__left">
+                    <!--========== HOME ==========-->
+                    <section class="home" id="home">
+                        <div class="home__container section bd-grid">
+                            <div class="home__data bd-grid">
+                                <!-- loading="lazy" load images only when they are visible, improving page speed and performance -->
+                                <img src="assets/images/profile/profile.jpg" loading="lazy" alt="Vivek's professional photo for resume page" class="home__img">
+
+                                <h1 class="home__title">VIVEK <b>KUMAR</b></h1>
+                                <h3 class="home__profession">Data Scientist</h3>
+
+                                <!-- Button to download your CV saved in the pdf folder. Available for mobile -->
+                                <div>
+                                    <a id="downloadResume" download="" href="assets/pdf/myResume1.pdf" class="home__button-movil">Download</a>
+                                </div>
+                            </div>
+
+                            <div class="home__address bd-grid">
+                                <span class="home__information">
+                                    <i class='bx bx-map home__icon'></i> Aya Nagar, South Delhi, 110047, India
+                                </span>
+                                <span class="home__information">
+                                    <i class='bx bx-envelope home__icon' ></i> mrvivekkumar7171@gmail.com
+                                </span>
+                                <span class="home__information">
+                                    <i class='bx bx-phone home__icon' ></i> 9876543210
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Theme change button -->
+                        <i class='bx bx-moon change-theme' title="Theme" id="theme-button"></i>
+                        <!--Button to generate and download the pdf. Available for desktop.-->
+                        <i class='bx bx-download generate-pdf' title="Generate PDF" id="resume-botton"></i>
+                    </section>          
+
+                    <!--========== SOCIAL ==========-->
+                    <section class="social section">
+                        <h2 class="section-title">SOCIAL</h2>
+                        <div class="social__container bd-grid">
+                            <a href="https://www.linkedin.com/in/Vivek-Kumar7171/" target="_blank" class="social__link">
+                                <i class='bx bxl-linkedin-square social__icon'></i> @Vivek-Kumar7171
+                            </a>
+                            <a href="https://x.com/VivekKumar7171" target="_blank" class="social__link">
+                                <i class='bx bxl-twitter social__icon'></i> @VivekKumar7171
+                            </a>
+                            <a href="https://www.instagram.com/mr.vivekprasad.kushwaha/" target="_blank" class="social__link">
+                                <i class='bx bxl-instagram social__icon'></i> @mr.vivekprasad.kushwaha
+                            </a>
+                    </section>
+
+                    <!--========== PROFILE ==========-->
+                    <section class="profile section" id="profile">
+                        <h2 class="section-title"> Profile</h2>
+                        <p class="profile__description">I am a dedicated Data Scientist passionate about leveraging data 
+                            to extract insights and drive impact. With a strong background in statistics, programming, and 
+                            ML, I excel at solving problems and transforming data into meaningful solutions.</p>
+                    </section>
+                    
+                    <!--========== EDUCATION ==========-->
+                    <section class="education section" id="education">
+                        <h2 class="section-title">Education</h2>
+                        <div class="education__container bd-grid">
+                            <div class="education__content">
+                                <div class="education__time">
+                                    <span class="education__rounder"></span>
+                                    <span class="education__line"></span>
+                                </div>
+                                <div class="education__data db-grid">
+                                    <h3 class="education__title">SECONDARY EDUCATION</h3>
+                                    <span class="education__studies">St. Paul's School</span>
+                                    <span class="education__year">2015 - 2019</span>
+                                </div>
+                            </div>
+                            <div class="education__content">
+                                <div class="education__time">
+                                    <span class="education__rounder"></span>
+                                    <span class="education__line"></span>
+                                </div>
+                                <div class="education__data db-grid">
+                                    <h3 class="education__title">SENIOR SECONDARY EDUCATION</h3>
+                                    <span class="education__studies">D.T.E.A. School</span>
+                                    <span class="education__year">2019 - 2021</span>
+                                </div>
+                            </div>
+                            <div class="education__content">
+                                <div class="education__time">
+                                    <span class="education__rounder"></span>
+                                    <!-- <span class="education__line"></span> -->
+                                </div>
+                                <div class="education__data db-grid">
+                                    <h3 class="education__title">BACHELOR OF COMPUTER APPLICATIONS</h3>
+                                    <span class="education__studies">Indira Gandhi National Open University</span>
+                                    <span class="education__year">2023 - Present</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!--========== SKILLS  ==========-->
+                    <section class="skills section" id="skills">
+                        <h2 class="section-title">Skills</h2>
+
+                        <div class="skills__content bd-grid">
+                            <ul class="skills__data">
+                                <li class="skills__name">
+                                    <span class="skills__circle"></span>Statistics
+                                </li>
+                                <li class="skills__name">
+                                    <span class="skills__circle"></span>Probability
+                                </li>
+                                <li class="skills__name">
+                                    <span class="skills__circle"></span>ML
+                                </li>
+                            </ul>
+
+                            <ul class="skills__data">
+                                <li class="skills__name">
+                                    <span class="skills__circle"></span>LLM
+                                </li>
+                                <li class="skills__name">
+                                    <span class="skills__circle"></span>MySQL
+                                </li>
+                                <li class="skills__name">
+                                    <span class="skills__circle"></span>Python
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                </div>
+
+                <div class="resume__right">
+                    <!--========== EXPERIENCE ==========-->
+                    <section class="experience section" id="experience">
+                        <h2 class="section-title">Projects</h2>
+
+                        <div class="experience__container bd-grid">
+
+                            <div class="experience__content">
+                                <div class="experience__time">
+                                    <span class="experience__rounder"></span>
+                                    <span class="experience__line"></span>
+                                </div>
+                                <div class="experience__data bd-grid">
+                                    <h3 class="experience__title">Data Science & Machine Learning</h3>
+                                    <span class="experience__company">Artha Project</span>
+                                    <p class="experience__description">A software solution that analyzes data from Indian 
+                                        and US stock markets and cryptocurrencies. It uses machine learning to rank stocks and 
+                                        performs sentiment analysis from social media and news, providing investors with valuable 
+                                        insights and rankings.</p>
+                                </div>
+                            </div>
+
+                            <div class="experience__content">
+                                <div class="experience__time">
+                                    <span class="experience__rounder"></span>
+                                    <span class="experience__line"></span>
+                                </div>
+                                <div class="experience__data bd-grid">
+                                    <h3 class="experience__title">DEEP LEARNING</h3>
+                                    <span class="experience__company">AI Innovations</span>
+                                    <p class="experience__description">Worked on developing and deploying deep learning 
+                                        models for image recognition, utilizing convolutional neural networks (CNNs) to 
+                                        achieve high accuracy in identifying objects and patterns in large datasets, 
+                                        enhancing automation and efficiency.</p>
+                                </div>
+                            </div>
+
+                            <div class="experience__content">
+                                <div class="experience__time">
+                                    <span class="experience__rounder"></span>
+                                    <!-- <span class="experience__line"></span> -->
+                                </div>
+                                <div class="experience__data bd-grid">
+                                    <h3 class="experience__title">MACHINE LEARNING</h3>
+                                    <span class="experience__company">Predictive Analytics Co.</span>
+                                    <p class="experience__description">Focused on building predictive models using machine learning 
+                                        algorithms, analyzing historical data to forecast trends, and improving decision-making for clients 
+                                        in the finance sector by delivering actionable insights.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!--========== CERTIFICATES ==========-->
+                    <section class="certificate section" id="certificates">
+                        <h2 class="section-title">Certificates</h2>
+
+                        <div class="certificate__container bd-grid">
+                            <div class="certificate__content">
+                                <h3 class="certificate__title">Certified in Data Analysis using Statistics, Probability, and Mathematics (2024)</h3>
+                                <p class="certificate__description">For mastering advanced data analysis techniques, applying 
+                                    statistical methods and probability models to extract insights, and solving complex problems 
+                                    using mathematical foundations in data-driven decision-making.</p>
+                            </div>
+
+                            <div class="certificate__content">
+                                <h3 class="certificate__title">Certified in Python and MySQL (2024)</h3>
+                                <p class="certificate__description">For demonstrating proficiency in Python programming and 
+                                    MySQL database management, applying them to automate processes, perform data analysis, and 
+                                    manage large datasets effectively in a production environment.</p>
+                            </div>
+
+                            <div class="certificate__content">
+                                <h3 class="certificate__title">Certified in Machine Learning and Deep Learning (2024)</h3>
+                                <p class="certificate__description">For achieving expertise in designing and implementing 
+                                    machine learning and deep learning algorithms, developing models to solve real-world 
+                                    challenges in computer vision, NLP, and other AI fields.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ========== REFERENCES ==========
+                    <section class="references section" id="references">
+                        <h2 class="section-title">References</h2>
+
+                        <div class="references__container bd-grid">
+
+                            <div class="references__content bd-grid">
+                                <span class="references__subtitle">Mag. Developer</span>
+                                <h3 class="references__title">Mr. Name</h3>
+                                <ul class="references__contact">
+                                    <li>Email: user@email.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section> -->
+
+                    <!--========== LANGUAGES ==========-->
+                    <section class="languages section">
+                        <h2 class="section-title">Languages</h2>
+
+                        <div class="languages__container">
+                            <ul class="languages__content bd-grid">
+                                <li class="languages__name">
+                                    <span class="languages__circle"></span> English
+                                </li>
+                                <li class="languages__name">
+                                    <span class="languages__circle"></span> Hindi
+                                </li>
+                                <li class="languages__name">
+                                    <span class="languages__circle"></span> Hinglish
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    
+                    <!--========== INTERESTS ==========-->
+                    <section class="interests section">
+                        <h2 class="section-title">Interests</h2>
+
+                        <div class="interests__container bd-grid">
+                            <div class="interests__content">
+                                <i class='bx bx-headphone interests__icon'></i>
+                                <span class="interests__name">Music</span>
+                            </div>
+
+                            <div class="interests__content">
+                                <i class='bx bx-candles interests__icon'></i>
+                                <span class="interests__name">Stocks</span>
+                            </div>
+
+                            <div class="interests__content">
+                                <i class='bx bx-book interests__icon' ></i>
+                                <span class="interests__name">Read</span>
+                            </div>
+
+                            <div class="interests__content">
+                                <i class='bx bx-dumbbell interests__icon' ></i>
+                                <span class="interests__name">Fitness</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>        
+        </main>
+
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
+        </a>
+
+        <!--========== HTML2PDF ==========-->
+        <script src="assets/js/html2pdf.bundle.min1.js"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="assets/js/main1.js"></script>
+
+        <!--========== Right-click disable script ==========-->
+        <script>
+            document.addEventListener("contextmenu", function (event) {
+                event.preventDefault();
+                alert("Right-click is disabled!");
+            });
+            // Disable Dragging
+            document.ondragstart = function () {
+                return false;
+            };
+        </script>
+
+        <!--========== Block Keyboard Shortcuts (F12, Ctrl+Shift+I, Ctrl+U, etc.) to access Developer Tools ==========-->
+        <script>
+            document.addEventListener("keydown", function (event) {
+                if (
+                    event.key === "F12" ||
+                    (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "i")) ||
+                    (event.ctrlKey && (event.key === "U" || event.key === "u"))
+                ) {
+                    event.preventDefault();
+                    alert("Inspect is disabled!");
+                }
+            });
+        </script>
+        <!--========== Prevent DevTools Detection : Some websites use a script to detect if Developer Tools are open and block access ==========-->
+
+        <script>
+            setInterval(function () {
+            if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+                document.body.innerHTML = "<h1>Inspection is not allowed!</h1>";
+            }
+            }, 1000);
+        </script>
+        <!-- <script>
+            User can also Protect login or submission forms from bots using Google reCAPTCHA
+        </script> -->
+
+        <!-- Credit: https://youtu.be/oYjseP_Qhv4?feature=shared -->
+    </body>
+</html>

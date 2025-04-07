@@ -1,0 +1,30 @@
+name: Security Check
+
+# Monitor Website with GitHub Actions, a tool that helps you automate tasks.
+# You can create workflows to Run security checks for vulnerabilities whenever you push code.
+# Deploy your website automatically. keep your website secure without you having to manually check everything.
+# Runs security checks every time you push code to the main branch, Schedules weekly scans automatically, Uses CodeQL, 
+# a tool from GitHub to find vulnerabilities.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Runs every Sunday
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run security audit
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
+
+      - name: Analyze code
+        uses: github/codeql-action/analyze@v2
