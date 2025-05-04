@@ -41,15 +41,15 @@
   box-sizing: border-box;
 }
 html{
-  scroll-behavior: smooth;
+  scroll-behavior: smooth;  
 }
 /*========== Variables Dark theme ==========*/
 body.dark-theme{
   --title-color: #F2F2F2;
   --text-color: #BFBFBF;
-  --container-color: #212121;
-  --container-color-alt: #181616;
-  --body-color: #2B2B2B;
+  --container-color: #1a1c20;
+  --container-color-alt: #131417;
+  --body-color: #252830;
 }
 
 /*========== Button Dark/Light ==========*/
