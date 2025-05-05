@@ -211,12 +211,13 @@ Tasks:
     add more posts/medium posts
         Data Science
         Machine Learning
-        Artificial Intelligence
+        Artificial Intelligence AI
         Python
         LLM
         Deep Learning
-        NLP
+        NLP Natural Language Processing
         Computer vision
-        CNN
-    add projects to locate the github repo
+        Convolutional Neural Networks (CNNs)
+        GPT (Generative Pre-trained Transformers)
+        Recurrent Neural Networks (RNNs)
     Update Readme
