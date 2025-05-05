@@ -215,13 +215,6 @@ Tasks:
         edit text
     add more posts/medium posts
 
-        Data Science
-        Python
-        LLM
-        Deep Learning
-        Machine Learning
-        Artificial Intelligence AI
-
         NLP Natural Language Processing
         Convolutional Neural Networks (CNNs)
         GPT (Generative Pre-trained Transformers)
