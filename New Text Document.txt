@@ -207,7 +207,6 @@ General Points :
 
 Tasks:
     Update Resume
-        change color
         edit text
     add more posts/medium posts
         Data Science
@@ -221,5 +220,3 @@ Tasks:
         CNN
     add projects to locate the github repo
     Update Readme
-    add privacy page
-    add terms and condition page
