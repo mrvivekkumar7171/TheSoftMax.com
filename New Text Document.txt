@@ -206,18 +206,25 @@ General Points :
 
 
 Tasks:
+    add contact pages which contain all methods to contact
+    add portfolio page
+    add github page
+    add blog page
+
     Update Resume
         edit text
     add more posts/medium posts
+
         Data Science
-        Machine Learning
-        Artificial Intelligence AI
         Python
         LLM
         Deep Learning
+        Machine Learning
+        Artificial Intelligence AI
+
         NLP Natural Language Processing
-        Computer vision
         Convolutional Neural Networks (CNNs)
         GPT (Generative Pre-trained Transformers)
         Recurrent Neural Networks (RNNs)
     Update Readme
+    reduce size of images
