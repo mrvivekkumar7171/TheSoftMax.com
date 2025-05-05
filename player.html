@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Music Player | The SoftMax</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        color: #222;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    h3{
+        text-align: center;
+    }
+    
+    #nowPlaying {
+        text-align: center;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .player, .playlist-section {
+        background-color: #252830;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 300px;
+        min-height: 200px;
+    }
+
+    .player button {
+        margin: 10px 5px;
+        padding: 10px 20px;
+        background-color: #1581f5;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .player button:hover {
+        background-color: #115eb1;
+    }
+
+    .playlist button {
+        display: block;
+        margin: 8px auto;
+        padding: 12px;
+        width: 100%;
+        background-color: #252830;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .playlist button:hover {
+        background-color: #222;
+        transform: scale(1.02);
+    }
+
+    .player button, .player input[type=range] {
+        margin-top: 8px;
+    }
+
+    #nowPlaying.playing {
+    animation: glow 1.5s infinite alternate;
+    color: #1db954;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #1db954; }
+    to { text-shadow: 0 0 15px #1db954; }
+}
+
+.equalizer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 40px;
+    gap: 5px;
+    margin-top: 10px;
+}
+.equalizer div {
+    width: 5px;
+    height: 20px;
+    background: #1db954;
+    animation: pulse 1s infinite ease-in-out;
+}
+.equalizer div:nth-child(2) { animation-delay: 0.2s; }
+.equalizer div:nth-child(3) { animation-delay: 0.4s; }
+.equalizer div:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes pulse {
+    0%, 100% { height: 10px; }
+    50% { height: 35px; }
+}
+
+.wave-ring {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #1db954;
+    border-radius: 50%;
+    margin: auto;
+    animation: wave 1.5s infinite ease-in-out;
+}
+
+@keyframes wave {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.player button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+body.playing-bg {
+    background: linear-gradient(-45deg, #1a1a1a, #222, #1b1f25);
+    background-size: 400% 400%;
+    animation: bgfade 10s ease infinite;
+}
+
+@keyframes bgfade {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+    </style>
+        <!-- Custom styles -->
+        <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<!--Keyboard Shortcuts (optional) 
+Add Progressive Web App (PWA), a web application that behaves like 
+a native app on mobile or desktop. Here's what it means for your music player:-->
+<body>
+
+    <h1>Music Player | The SoftMax</h1>
+
+    <div class="container">
+
+        <!-- Left Side: Music Player -->
+        <div class="player">
+            <h3>My Music Player</h3>
+            <p id="nowPlaying">Playing: None</p>
+            <div class="equalizer">
+                <div></div><div></div><div></div><div></div>
+            </div>
+            <div class="wave-ring"></div>
+            <button onclick="prevSong()">⏮️ Previous</button>
+            <button onclick="playSong()">▶️ Play</button>
+            <button onclick="pauseSong()">⏸️ Pause</button>
+            <button onclick="stopSong()">⏹️ Stop</button>
+            <button onclick="nextSong()">⏭️ Next</button>
+            <br><br>
+            <button onclick="toggleLoop()">🔁 Loop: <span id="loopStatus">Off</span></button>
+            <button onclick="toggleShuffle()">🔀 Shuffle: <span id="shuffleStatus">Off</span></button>
+            <br><br>
+            <label for="volume">🔊 Volume</label>
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1" onchange="changeVolume(this.value)">
+            <!-- Progress Bar Section -->
+            <div style="margin-top: 20px;">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="progressBar" value="0" min="0" step="1" style="width: 70%;">
+                <span id="totalDuration">0:00</span>
+            </div>
+        </div>            
+
+            <!-- Right Side: Playlist -->
+        <div class="playlist-section">
+            <h3>Playlist</h3>
+            <div id="playlistContainer" style="height: 500px; overflow-y: auto;">
+                <div class="playlist" id="playlist"></div>
+            </div>
+            <audio id="audioPlayer" controls style="display:none;" preload="none"></audio>
+        </div>
+    </div>
+
+    <script>
+        const songs = [
+            { name: "Aapka Kya Hoga Janabe Ali", file: "./assets/music/＂Aapka Kya Hoga Janabe Ali＂ (Dhanno) Housefull Full Song ｜ Akshay Kumar ｜ Mika Singh.webm" },
+            { name: "Beete Lamhe", file: "./assets/music/＂Beete Lamhe＂ Lyrical Video Song  ｜ The Train ｜ K.K. ｜ Mithoon ｜ Emraan Hashmi, Geeta Basra.webm" },
+            { name: "Bhare Naina", file: "./assets/music/＂Bhare Naina＂ With Lyrics ｜  Ra One ｜ ShahRukh Khan, Kareena Kapoor.webm" },
+            { name: "Deedar De", file: "./assets/music/＂Deedar De [Full Song]＂ Hindi Film Dus, Ft Abhishek Bacchan.webm" },
+            { name: "Dil Tu Hi Bataa", file: "./assets/music/＂Dil Tu Hi Bataa Krrish 3＂ Full Video Song ｜ Hrithik Roshan, Kangana Ranaut.webm" },
+        ];
+
+    const audio = document.getElementById('audioPlayer');
+    const nowPlaying = document.getElementById('nowPlaying');
+    const playlist = document.getElementById('playlist');
+    const playlistContainer = document.getElementById('playlistContainer');
+    const buttonHeight = 50; // Approx height of one button in px
+    const visibleCount = Math.ceil(playlistContainer.clientHeight / buttonHeight) + 5; // Render extra for smooth scroll
+    let currentIndex = -1;
+    let isLooping = false;
+    let isShuffle = false;
+
+    function nextSong() {
+        if (isShuffle) {
+            currentIndex = Math.floor(Math.random() * songs.length);
+        } else {
+            currentIndex = (currentIndex + 1) % songs.length;
+        }
+        loadAndPlay(songs[currentIndex]);
+    }
+
+    function prevSong() {
+        if (isShuffle) {
+            currentIndex = Math.floor(Math.random() * songs.length);
+        } else {
+            currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+        }
+        loadAndPlay(songs[currentIndex]);
+    }
+
+    function toggleLoop() {
+        isLooping = !isLooping;
+        audio.loop = isLooping;
+        document.getElementById("loopStatus").textContent = isLooping ? "On" : "Off";
+    }
+
+    function toggleShuffle() {
+        isShuffle = !isShuffle;
+        document.getElementById("shuffleStatus").textContent = isShuffle ? "On" : "Off";
+    }
+
+    function changeVolume(val) {
+        audio.volume = val;
+    }
+
+    // Auto play next (or shuffle)
+    audio.addEventListener('ended', () => {
+        if (!audio.loop) {
+            if (isShuffle) {
+                currentIndex = Math.floor(Math.random() * songs.length);
+                loadAndPlay(songs[currentIndex]);
+            } else {
+                currentIndex++;
+                if (currentIndex < songs.length) {
+                    loadAndPlay(songs[currentIndex]);
+                } else {
+                    nowPlaying.textContent = "Playing: None";
+                    currentIndex = -1;
+                }
+            }
+        }
+        // ✅ Cleanup after end
+        audio.pause();
+        audio.removeAttribute('src');
+        audio.load();  // force browser to unload
+    });
+
+    // Generate playlist buttons
+    songs.forEach((song, index) => {
+        const btn = document.createElement('button');
+        btn.textContent = song.name;
+        btn.onclick = () => {
+        currentIndex = index;
+        loadAndPlay(song);
+        };
+        playlist.appendChild(btn);
+    });
+
+    function loadAndPlay(song) {
+        // ✅ Clear old audio
+        audio.pause();
+        audio.removeAttribute('src');
+        audio.load();
+        
+        // ✅ Load new audio
+        audio.src = song.file;
+        audio.currentTime = 0;
+        audio.load();  // force proper loading
+        audio.play();
+        nowPlaying.textContent = "Playing: " + song.name;
+    }
+
+    function playSong() {
+        if (currentIndex === -1) {
+        currentIndex = 0;
+        loadAndPlay(songs[currentIndex]);
+        } else {
+        audio.play();
+        }
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function stopSong() {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+
+    // Format time in mm:ss
+    function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? "0" + sec : sec}`;
+    }
+
+    const progressBar = document.getElementById('progressBar');
+    const currentTimeEl = document.getElementById('currentTime');
+    const totalDurationEl = document.getElementById('totalDuration');
+
+    // Update progress bar as audio plays
+    audio.addEventListener('timeupdate', () => {
+        progressBar.value = audio.currentTime;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    // Set duration once metadata is loaded
+    audio.addEventListener('loadedmetadata', () => {
+        progressBar.max = Math.floor(audio.duration);
+        totalDurationEl.textContent = formatTime(audio.duration);
+    });
+
+    // Seek when progress bar is changed
+    progressBar.addEventListener('input', () => {
+        audio.currentTime = progressBar.value;
+    });
+
+    audio.addEventListener('play', () => {
+        nowPlaying.classList.add('playing');
+        document.querySelector('.equalizer').style.visibility = 'visible';
+        document.querySelector('.wave-ring').style.visibility = 'visible';
+        document.body.classList.add('playing-bg');
+    });
+    audio.addEventListener('pause', () => {
+        nowPlaying.classList.remove('playing');
+        document.querySelector('.equalizer').style.visibility = 'hidden';
+        document.querySelector('.wave-ring').style.visibility = 'hidden';
+        document.body.classList.remove('playing-bg');
+    });
+    audio.addEventListener('ended', () => {
+        nowPlaying.classList.remove('playing');
+        document.querySelector('.equalizer').style.visibility = 'hidden';
+        document.querySelector('.wave-ring').style.visibility = 'hidden';
+        document.body.classList.remove('playing-bg');
+    });
+
+    function renderVisibleSongs() {
+        const scrollTop = playlistContainer.scrollTop;
+        const startIndex = Math.max(0, Math.floor(scrollTop / buttonHeight) - 2);
+        const endIndex = Math.min(songs.length, startIndex + visibleCount);
+
+        playlist.innerHTML = "";
+
+        for (let i = startIndex; i < endIndex; i++) {
+            const song = songs[i];
+            const btn = document.createElement('button');
+            btn.textContent = song.name;
+            btn.onclick = () => {
+                currentIndex = i;
+                loadAndPlay(song);
+            };
+            playlist.appendChild(btn);
+        }
+    }
+
+    // Add padding for full scroll height
+    playlist.style.height = `${songs.length * buttonHeight}px`;
+
+    // Initial render and on scroll
+    renderVisibleSongs();
+    playlistContainer.addEventListener('scroll', renderVisibleSongs);
+
+    </script>
+</body>
+</html>
