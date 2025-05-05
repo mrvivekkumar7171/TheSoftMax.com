@@ -207,17 +207,16 @@ General Points :
 
 Tasks:
     add contact pages which contain all methods to contact
-    add portfolio page
+    add portfolio./about me page
     add github page
     add blog page
 
-    Update Resume
-        edit text
-    add more posts/medium posts
+    add url of github, leetcode, medium and stratascratch
 
-        NLP Natural Language Processing
-        Convolutional Neural Networks (CNNs)
-        GPT (Generative Pre-trained Transformers)
-        Recurrent Neural Networks (RNNs)
+    Update Resume page
+        edit text
+
+        link update in the footer and popular topics
     Update Readme
-    reduce size of images
+    reduce size of images change image and pdf of resume page in readme and download section
+    add music player
