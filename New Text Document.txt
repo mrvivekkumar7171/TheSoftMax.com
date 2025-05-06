@@ -219,4 +219,3 @@ Tasks:
         link update in the footer and popular topics
     Update Readme
     reduce size of images change image and pdf of resume page in readme and download section
-    add music player
