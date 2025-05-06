@@ -4,53 +4,60 @@
     <meta charset="UTF-8" />
     <title>Music Player | The SoftMax</title>
     <style>
+    /* Styling for the whole body */
     body {
         font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-        color: #222;
-        padding: 20px;
+        background-color: #131417; /* dark theme */
+        color: #afb6cd; /* soft grey text color */
+        padding: 10px;
+    }
+
+    /* Apply box-sizing to all elements to include padding and border in width/height */
+    * {
+        box-sizing: border-box;
     }
 
     h3{
         text-align: center;
+        margin: 0.5%;
     }
     
     #nowPlaying {
         font-weight: bold;
         font-size: 16px;
-        color: white;
-        margin: 0;
+        color: #afb6cd;
+        margin-left: 5px;
     }
 
     .container {
         display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
+        justify-content: space-evenly;
+        align-items: baseline;
         flex-wrap: wrap;
-        gap: 30px;
+        flex-direction: column;
+        align-content: center;
+        gap: 10px;
     }
 
     .player, .playlist-section {
-        background-color: #252830;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        width: 300px;
-        min-height: 200px;
+        background-color: #252830; /* panel background */   
+        padding: 1%;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* light shadow */
+        color: #afb6cd;
+        border-radius: 5px;
     }
 
     .player {
-        width: 48.5%;
+        width: 50%;
     } 
     .playlist-section {
-        width: 35%;
+        width: 50%;
     }
 
+    /* Music control buttons */
     .player button {
-        margin: 10px 5px;
-        padding: 5px 10px;
-        /* padding: 0 30px;
-        margin: 0 10px; */
+        margin: 2% 2%;
+        padding: 1.5% 2.3%;
         background-color: #1581f5;
         border: none;
         border-radius: 6px;
@@ -59,16 +66,14 @@
         transition: background-color 0.3s ease;
     }
 
-    .player button:hover {
-        background-color: #115eb1;
-    }
-
+    /* Playlist buttons */
     .playlist button {
         display: block;
         margin: 8px auto;
         margin-left: 8px;
         padding: 12px;
         width: 100%;
+        color: #afb6cd;
         background-color: #252830;
         border: 1px solid #ccc;
         border-radius: 6px;
@@ -77,18 +82,21 @@
         transition: background-color 0.2s, transform 0.1s;
     }
 
+    /* subtle hover animation */
     .playlist button:hover {
         background-color: #222;
         transform: scale(1.02);
     }
 
-    .player button, .player input[type=range] {
+    /* Progress bar styling */
+    .player input[type=range] {
         margin-top: 8px;
     }
 
+    /* Glow animation when a song is playing */
     #nowPlaying.playing {
         animation: glow 1.5s infinite alternate;
-        color: #1db954;
+        color: #1db954; /* green glow */
     }
 
     @keyframes glow {
@@ -96,18 +104,22 @@
         to { text-shadow: 0 0 15px #1db954; }
     }
 
+    /* Equalizer bars animation */
     .equalizer {
         display: flex;
         gap: 4px;
         height: 20px;
         align-items: flex-end;
-        visibility: hidden;
+        visibility: hidden; /* only visible when playing */
+        margin-right: 10px;
     }
     .equalizer div {
         width: 5px;
         background: #1db954;
         animation: equalize 1s infinite ease-in-out;
     }
+
+     /* Delay each bar for wave effect */
     .equalizer div:nth-child(1) { animation-delay: 0s; }
     .equalizer div:nth-child(2) { animation-delay: 0.2s; }
     .equalizer div:nth-child(3) { animation-delay: 0.4s; }
@@ -117,9 +129,10 @@
 
     @keyframes equalize {
         0%, 100% { height: 4px; }
-        50% { height: 20px; }
+        50% { height: 20px; } /* wave height */
     }
 
+    /* Container for current song and equalizer */
     .now-playing-container {
         display: flex;
         justify-content: space-between;
@@ -128,14 +141,12 @@
         padding: 0 10px;
     }
 
+    /* Ring animation behind volume icon */
     .wave-ring {
-        /* width: 30px;
-        height: 30px;
-        border: 2px solid #115eb1; */
         border-radius: 50%;
         margin: auto;
         animation: wave 1.5s infinite ease-in-out;
-        visibility: hidden;
+        visibility: hidden; /* only shown when music is playing */
     }
 
     @keyframes wave {
@@ -143,23 +154,14 @@
         100% { transform: scale(1.5); opacity: 0; }
     }
 
-    .player button:active {
+    /* Hover effect for control buttons */
+    .player button:hover {
         transform: scale(0.98);
         transition: transform 0.1s ease;
+        background-color: #115eb1;
     }
 
-    body.playing-bg {
-        background: linear-gradient(-45deg, #1a1a1a, #222, #1b1f25);
-        background-size: 400% 400%;
-        animation: bgfade 10s ease infinite;
-    }
-
-    @keyframes bgfade {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
+     /* Volume slider container, vertical layout */
     .volume-container {
         display: flex;
         flex-direction: column;
@@ -169,14 +171,14 @@
         justify-content: center;
     }
 
+     /* Rotate volume slider vertically */
     .volume-container input[type="range"] {
         transform: rotate(-90deg);
         width: 100px; /* controls the vertical length */
         margin-top: 10px;
     }
+
     </style>
-        <!-- Custom styles -->
-        <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <!--Keyboard Shortcuts (optional) 
 Add Progressive Web App (PWA), a web application that behaves like 
@@ -185,13 +187,16 @@ a native app on mobile or desktop. Here's what it means for your music player:--
 
     <div class="container">
 
-        <!-- Left Side: Music Player -->
+        <!-- Main Music Player UI -->
         <div class="player" >
-            <h3>My Music Player</h3>        
-            
+            <h3>My Music Player</h3>
+
+            <!-- Wrapper for playback and volume control -->
             <div style="display: flex; align-items: flex-start; width: 100%;">
-                <!-- Controller Container: Takes remaining space -->
-                <div class="Controller-ocntainer" style="flex: 1; margin-right: 10px;">
+
+                <!-- Left: Playback controls -->
+                <div class="controller-container" style="flex: 1; margin-right: 10px;">
+                    <!-- Current song and visualizer -->
                     <div class="now-playing-container">
                         <p id="nowPlaying"></p>
                         <div class="equalizer">
@@ -200,6 +205,7 @@ a native app on mobile or desktop. Here's what it means for your music player:--
                     </div>
                     
                     <br>
+                    <!-- Playback control buttons -->
                     <button onclick="toggleLoop()">🔁 <span id="loopStatus" style="font-weight: bold; color: white;">Off</span></button>
                     <button onclick="prevSong()">⏮️</button>
                     <button onclick="pauseSong()">⏸️</button>
@@ -208,32 +214,33 @@ a native app on mobile or desktop. Here's what it means for your music player:--
                     <button onclick="nextSong()">⏭️</button>
                     <button onclick="toggleShuffle()">🔀 <span id="shuffleStatus" style="font-weight: bold; color: white;">ON</span></button>
                     
-                    <!-- Progress Bar Section -->
+                    <!-- Progress bar showing current position -->
                     <div style="margin-top: 20px; display: flex; align-items: center;">
                         <span id="currentTime" style="width: 50px; text-align: right;">0:00</span>
-                        <input type="range" id="progressBar" value="0" min="0" step="1" style="width: 80%; flex: 1; margin: 0 10px;">
+                        <input type="range" id="progressBar" value="0" min="0" step="1" style="width: 100%; flex: 1; margin: 0 10px;">
                         <span id="totalDuration" style="width: 50px; text-align: left;">0:00</span>
                     </div>
                 </div>
             
-                <!-- Volume Container: Minimum width -->
-                <div class="volume-container" style="white-space: nowrap;">
-                    <label for="volume"><div class="wave-ring">🔊</div></label><br><br>
-                    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.1" onchange="changeVolume(this.value)">
+                <!-- Right: Volume control -->
+                <div class="volume-container" style="white-space: nowrap; width: 20px;">
+                    <label for="volume"><div class="wave-ring" style="margin-bottom: 5px;">🔊</div></label><br><br>
+                    <input type="range" style="margin-bottom: 25px;" id="volume" min="0" max="1" step="0.01" value="0.1" onchange="changeVolume(this.value) ">
                 </div>
             </div>
         </div>
 
-            <!-- Right Side: Playlist -->
+        <!-- Playlist section (right side) -->
         <div class="playlist-section">
-            <h3>Playlist</h3>
-            <div id="playlistContainer" style="height: 350px; overflow-y: auto;">
+            <div id="playlistContainer" style="height: 360px; overflow-y: auto;">
                 <div class="playlist" id="playlist" style="width: 95%;"></div>
             </div>
+            <!-- Hidden HTML audio element -->
             <audio id="audioPlayer" controls style="display:none;" preload="none"></audio>
         </div>
     </div>
 
+    <!-- JS logic -->
     <script>
         const songs = [
             { name: "Aapka Kya Hoga Janabe Ali", file: "./assets/music/＂Aapka Kya Hoga Janabe Ali＂ (Dhanno) Housefull Full Song ｜ Akshay Kumar ｜ Mika Singh_compressed.webm" },
@@ -245,7 +252,7 @@ a native app on mobile or desktop. Here's what it means for your music player:--
             { name: "Faster Than Lightning", file: "./assets/music/＂Faster Than Lightning＂ feat. Usain Bolt - DJ Steve Porter Remix_compressed.webm" },
             { name: "Hawa Hawa", file: "./assets/music/＂Hawa Hawa＂ (Full Video Song) ｜ Mubarakan ｜ Anil Kapoor, Arjun Kapoor, Ileana D’Cruz, Athiya Shetty_compressed.webm" },
             { name: "Jiyein Kyun Dum Maaro Dum", file: "./assets/music/＂Jiyein Kyun Dum Maaro Dum＂  Full Video Song (HD) ｜ Rana Daggubati, Bipasha Basu_compressed.webm" },
-            { name: "Kabhi Jo Badal Barse", file: "./assets/music/＂Kabhi Jo Badal Barse＂ Song Video Jackpot ｜ Arijit Singh ｜ Sachiin J Joshi, Sunny Leone_compressed.webm" },,
+            { name: "Kabhi Jo Badal Barse", file: "./assets/music/＂Kabhi Jo Badal Barse＂ Song Video Jackpot ｜ Arijit Singh ｜ Sachiin J Joshi, Sunny Leone_compressed.webm" },
         ];
 
     const audio = document.getElementById('audioPlayer');
@@ -329,7 +336,7 @@ a native app on mobile or desktop. Here's what it means for your music player:--
         // ✅ Clear old audio
         audio.pause();
         audio.removeAttribute('src');
-        audio.load();
+
         
         // ✅ Load new audio
         audio.src = song.file;
@@ -391,19 +398,16 @@ a native app on mobile or desktop. Here's what it means for your music player:--
         nowPlaying.classList.add('playing');
         document.querySelector('.equalizer').style.visibility = 'visible';
         document.querySelector('.wave-ring').style.visibility = 'visible';
-        document.body.classList.add('playing-bg');
     });
     audio.addEventListener('pause', () => {
         nowPlaying.classList.remove('playing');
         document.querySelector('.equalizer').style.visibility = 'hidden';
         document.querySelector('.wave-ring').style.visibility = 'hidden';
-        document.body.classList.remove('playing-bg');
     });
     audio.addEventListener('ended', () => {
         nowPlaying.classList.remove('playing');
         document.querySelector('.equalizer').style.visibility = 'hidden';
         document.querySelector('.wave-ring').style.visibility = 'hidden';
-        document.body.classList.remove('playing-bg');
     });
 
     function renderVisibleSongs() {
