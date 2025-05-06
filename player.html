@@ -11,17 +11,15 @@
         padding: 20px;
     }
 
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
     h3{
         text-align: center;
     }
     
     #nowPlaying {
-        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+        margin: 0;
     }
 
     .container {
@@ -41,9 +39,18 @@
         min-height: 200px;
     }
 
+    .player {
+        width: 48.5%;
+    } 
+    .playlist-section {
+        width: 35%;
+    }
+
     .player button {
         margin: 10px 5px;
-        padding: 10px 20px;
+        padding: 5px 10px;
+        /* padding: 0 30px;
+        margin: 0 10px; */
         background-color: #1581f5;
         border: none;
         border-radius: 6px;
@@ -59,6 +66,7 @@
     .playlist button {
         display: block;
         margin: 8px auto;
+        margin-left: 8px;
         padding: 12px;
         width: 100%;
         background-color: #252830;
@@ -79,68 +87,93 @@
     }
 
     #nowPlaying.playing {
-    animation: glow 1.5s infinite alternate;
-    color: #1db954;
-}
+        animation: glow 1.5s infinite alternate;
+        color: #1db954;
+    }
 
-@keyframes glow {
-    from { text-shadow: 0 0 5px #1db954; }
-    to { text-shadow: 0 0 15px #1db954; }
-}
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #1db954; }
+        to { text-shadow: 0 0 15px #1db954; }
+    }
 
-.equalizer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 40px;
-    gap: 5px;
-    margin-top: 10px;
-}
-.equalizer div {
-    width: 5px;
-    height: 20px;
-    background: #1db954;
-    animation: pulse 1s infinite ease-in-out;
-}
-.equalizer div:nth-child(2) { animation-delay: 0.2s; }
-.equalizer div:nth-child(3) { animation-delay: 0.4s; }
-.equalizer div:nth-child(4) { animation-delay: 0.6s; }
+    .equalizer {
+        display: flex;
+        gap: 4px;
+        height: 20px;
+        align-items: flex-end;
+        visibility: hidden;
+    }
+    .equalizer div {
+        width: 5px;
+        background: #1db954;
+        animation: equalize 1s infinite ease-in-out;
+    }
+    .equalizer div:nth-child(1) { animation-delay: 0s; }
+    .equalizer div:nth-child(2) { animation-delay: 0.2s; }
+    .equalizer div:nth-child(3) { animation-delay: 0.4s; }
+    .equalizer div:nth-child(4) { animation-delay: 0.6s; }
+    .equalizer div:nth-child(5) { animation-delay: 0.8s; }
+    .equalizer div:nth-child(6) { animation-delay: 1s; }
 
-@keyframes pulse {
-    0%, 100% { height: 10px; }
-    50% { height: 35px; }
-}
+    @keyframes equalize {
+        0%, 100% { height: 4px; }
+        50% { height: 20px; }
+    }
 
-.wave-ring {
-    width: 20px;
-    height: 20px;
-    border: 3px solid #1db954;
-    border-radius: 50%;
-    margin: auto;
-    animation: wave 1.5s infinite ease-in-out;
-}
+    .now-playing-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        padding: 0 10px;
+    }
 
-@keyframes wave {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.5); opacity: 0; }
-}
+    .wave-ring {
+        /* width: 30px;
+        height: 30px;
+        border: 2px solid #115eb1; */
+        border-radius: 50%;
+        margin: auto;
+        animation: wave 1.5s infinite ease-in-out;
+        visibility: hidden;
+    }
 
-.player button:active {
-    transform: scale(0.98);
-    transition: transform 0.1s ease;
-}
+    @keyframes wave {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1.5); opacity: 0; }
+    }
 
-body.playing-bg {
-    background: linear-gradient(-45deg, #1a1a1a, #222, #1b1f25);
-    background-size: 400% 400%;
-    animation: bgfade 10s ease infinite;
-}
+    .player button:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
 
-@keyframes bgfade {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+    body.playing-bg {
+        background: linear-gradient(-45deg, #1a1a1a, #222, #1b1f25);
+        background-size: 400% 400%;
+        animation: bgfade 10s ease infinite;
+    }
+
+    @keyframes bgfade {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .volume-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+        height: 120px;
+        justify-content: center;
+    }
+
+    .volume-container input[type="range"] {
+        transform: rotate(-90deg);
+        width: 100px; /* controls the vertical length */
+        margin-top: 10px;
+    }
     </style>
         <!-- Custom styles -->
         <link rel="stylesheet" href="./assets/css/main.css">
@@ -150,42 +183,52 @@ Add Progressive Web App (PWA), a web application that behaves like
 a native app on mobile or desktop. Here's what it means for your music player:-->
 <body>
 
-    <h1>Music Player | The SoftMax</h1>
-
     <div class="container">
 
         <!-- Left Side: Music Player -->
-        <div class="player">
-            <h3>My Music Player</h3>
-            <p id="nowPlaying">Playing: None</p>
-            <div class="equalizer">
-                <div></div><div></div><div></div><div></div>
+        <div class="player" >
+            <h3>My Music Player</h3>        
+            
+            <div style="display: flex; align-items: flex-start; width: 100%;">
+                <!-- Controller Container: Takes remaining space -->
+                <div class="Controller-ocntainer" style="flex: 1; margin-right: 10px;">
+                    <div class="now-playing-container">
+                        <p id="nowPlaying"></p>
+                        <div class="equalizer">
+                            <div></div><div></div><div></div><div></div><div></div><div></div>
+                        </div>
+                    </div>
+                    
+                    <br>
+                    <button onclick="toggleLoop()">🔁 <span id="loopStatus" style="font-weight: bold; color: white;">Off</span></button>
+                    <button onclick="prevSong()">⏮️</button>
+                    <button onclick="pauseSong()">⏸️</button>
+                    <button onclick="playSong()">▶️</button>
+                    <button onclick="stopSong()">⏹️</button>
+                    <button onclick="nextSong()">⏭️</button>
+                    <button onclick="toggleShuffle()">🔀 <span id="shuffleStatus" style="font-weight: bold; color: white;">ON</span></button>
+                    
+                    <!-- Progress Bar Section -->
+                    <div style="margin-top: 20px; display: flex; align-items: center;">
+                        <span id="currentTime" style="width: 50px; text-align: right;">0:00</span>
+                        <input type="range" id="progressBar" value="0" min="0" step="1" style="width: 80%; flex: 1; margin: 0 10px;">
+                        <span id="totalDuration" style="width: 50px; text-align: left;">0:00</span>
+                    </div>
+                </div>
+            
+                <!-- Volume Container: Minimum width -->
+                <div class="volume-container" style="white-space: nowrap;">
+                    <label for="volume"><div class="wave-ring">🔊</div></label><br><br>
+                    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.1" onchange="changeVolume(this.value)">
+                </div>
             </div>
-            <div class="wave-ring"></div>
-            <button onclick="prevSong()">⏮️ Previous</button>
-            <button onclick="playSong()">▶️ Play</button>
-            <button onclick="pauseSong()">⏸️ Pause</button>
-            <button onclick="stopSong()">⏹️ Stop</button>
-            <button onclick="nextSong()">⏭️ Next</button>
-            <br><br>
-            <button onclick="toggleLoop()">🔁 Loop: <span id="loopStatus">Off</span></button>
-            <button onclick="toggleShuffle()">🔀 Shuffle: <span id="shuffleStatus">Off</span></button>
-            <br><br>
-            <label for="volume">🔊 Volume</label>
-            <input type="range" id="volume" min="0" max="1" step="0.01" value="1" onchange="changeVolume(this.value)">
-            <!-- Progress Bar Section -->
-            <div style="margin-top: 20px;">
-                <span id="currentTime">0:00</span>
-                <input type="range" id="progressBar" value="0" min="0" step="1" style="width: 70%;">
-                <span id="totalDuration">0:00</span>
-            </div>
-        </div>            
+        </div>
 
             <!-- Right Side: Playlist -->
         <div class="playlist-section">
             <h3>Playlist</h3>
-            <div id="playlistContainer" style="height: 500px; overflow-y: auto;">
-                <div class="playlist" id="playlist"></div>
+            <div id="playlistContainer" style="height: 350px; overflow-y: auto;">
+                <div class="playlist" id="playlist" style="width: 95%;"></div>
             </div>
             <audio id="audioPlayer" controls style="display:none;" preload="none"></audio>
         </div>
@@ -206,6 +249,7 @@ a native app on mobile or desktop. Here's what it means for your music player:--
         ];
 
     const audio = document.getElementById('audioPlayer');
+    const volumeSlider = document.getElementById("volume");
     const nowPlaying = document.getElementById('nowPlaying');
     const playlist = document.getElementById('playlist');
     const playlistContainer = document.getElementById('playlistContainer');
@@ -213,7 +257,7 @@ a native app on mobile or desktop. Here's what it means for your music player:--
     const visibleCount = Math.ceil(playlistContainer.clientHeight / buttonHeight) + 5; // Render extra for smooth scroll
     let currentIndex = -1;
     let isLooping = false;
-    let isShuffle = false;
+    let isShuffle = true;
 
     function nextSong() {
         if (isShuffle) {
@@ -245,7 +289,7 @@ a native app on mobile or desktop. Here's what it means for your music player:--
     }
 
     function changeVolume(val) {
-        audio.volume = val;
+        audio.volume = parseFloat(val);
     }
 
     // Auto play next (or shuffle)
@@ -264,10 +308,10 @@ a native app on mobile or desktop. Here's what it means for your music player:--
                 }
             }
         }
-        // ✅ Cleanup after end
-        audio.pause();
-        audio.removeAttribute('src');
-        audio.load();  // force browser to unload
+        // Cleanup after end
+        // audio.pause();
+        // audio.removeAttribute('src');
+        // audio.load();  // force browser to unload
     });
 
     // Generate playlist buttons
@@ -292,7 +336,7 @@ a native app on mobile or desktop. Here's what it means for your music player:--
         audio.currentTime = 0;
         audio.load();  // force proper loading
         audio.play();
-        nowPlaying.textContent = "Playing: " + song.name;
+        nowPlaying.textContent = song.name;
     }
 
     function playSong() {
@@ -334,6 +378,8 @@ a native app on mobile or desktop. Here's what it means for your music player:--
     audio.addEventListener('loadedmetadata', () => {
         progressBar.max = Math.floor(audio.duration);
         totalDurationEl.textContent = formatTime(audio.duration);
+        audio.volume = 0.1;
+        volumeSlider.value = 0.1;
     });
 
     // Seek when progress bar is changed
