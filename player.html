@@ -292,9 +292,12 @@ a native app on mobile or desktop. Here's what it means for your music player:--
     const playlistContainer = document.getElementById('playlistContainer');
     const buttonHeight = 50; // Approx height of one button in px
     const visibleCount = Math.ceil(playlistContainer.clientHeight / buttonHeight) + 5; // Render extra for smooth scroll
-    let currentIndex = -1;
+    let currentIndex = 0;
     let isLooping = false;
     let isShuffle = true;
+    audio.src = songs[0].file;      // load it
+    audio.load();                   // force metadata load
+    nowPlaying.textContent = songs[0].name;
 
     function nextSong() {
         if (isShuffle) {
@@ -377,7 +380,7 @@ a native app on mobile or desktop. Here's what it means for your music player:--
     }
 
     function playSong() {
-        if (currentIndex === -1) {
+        if (audio.src === "" || currentIndex === -1) {
         currentIndex = 0;
         loadAndPlay(songs[currentIndex]);
         } else {
