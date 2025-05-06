@@ -2,7 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Music Player | The SoftMax</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="The SoftMax" />
+    <meta property="og:description" content="Lets deep dive in the world of ML and AI." />
+    <meta property="og:image" content="https://thesoftmax.com/assets/images/favicon/favicon.png" />
+    <meta property="og:url" content="https://thesoftmax.com/" />
+    <meta property="og:type" content="website" />
+    
+    <!-- title and SEO -->
+    <title>Music Player</title>
+    <meta name="description" content="An immersive music player with shuffle, loop, and volume control features.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
+    
+    <!-- css -->
     <style>
     /* Styling for the whole body */
     body {
@@ -189,7 +206,7 @@ a native app on mobile or desktop. Here's what it means for your music player:--
 
         <!-- Main Music Player UI -->
         <div class="player" >
-            <h3>My Music Player</h3>
+            <h3>Music Player</h3>
 
             <!-- Wrapper for playback and volume control -->
             <div style="display: flex; align-items: flex-start; width: 100%;">
@@ -435,7 +452,63 @@ a native app on mobile or desktop. Here's what it means for your music player:--
     // Initial render and on scroll
     renderVisibleSongs();
     playlistContainer.addEventListener('scroll', renderVisibleSongs);
+    document.addEventListener('keydown', function(event) {
+        // Ignore key presses when focus is in an input or textarea
+        if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
+        switch (event.code) {
+            case 'Space':
+                event.preventDefault(); // prevent page scroll
+                if (audio.paused) {
+                    playSong();
+                } else {
+                    pauseSong();
+                }
+                break;
+            case 'ArrowRight':
+                nextSong();
+                break;
+            case 'ArrowLeft':
+                prevSong();
+                break;
+            case 'ArrowUp':
+                event.preventDefault();
+                let volUp = Math.min(audio.volume + 0.05, 1);
+                audio.volume = volUp;
+                volumeSlider.value = volUp;
+                break;
+            case 'ArrowDown':
+                event.preventDefault();
+                let volDown = Math.max(audio.volume - 0.05, 0);
+                audio.volume = volDown;
+                volumeSlider.value = volDown;
+                break;
+        }
+    });
+
+    function playSong() {
+        if (audio.src) {
+            audio.play();
+            nowPlaying.classList.add("playing");
+            document.querySelector('.equalizer').style.visibility = "visible";
+            document.querySelector('.wave-ring').style.visibility = "visible";
+        }
+    }
+
+    function pauseSong() {
+        audio.pause();
+        nowPlaying.classList.remove("playing");
+        document.querySelector('.equalizer').style.visibility = "hidden";
+        document.querySelector('.wave-ring').style.visibility = "hidden";
+    }
+
+    function stopSong() {
+        audio.pause();
+        audio.currentTime = 0;
+        nowPlaying.classList.remove("playing");
+        document.querySelector('.equalizer').style.visibility = "hidden";
+        document.querySelector('.wave-ring').style.visibility = "hidden";
+    }
     </script>
 </body>
 </html>
