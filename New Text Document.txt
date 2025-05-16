@@ -40,7 +40,137 @@ Load sensitive data dynamically via backend APIs instead of embedding them in th
 Even with these measures, experienced users can still bypass restrictions using browser extensions or debugging techniques.
 The best security practice is to protect sensitive data on the backend rather than relying only on front-end security.
 TheSoftmax.com:
+---------------------------------------------------------------------------------------------------------
 
+What is Open Source Software?
+    - Open source software is software with source code that anyone can inspect, modify, and enhance.
+    - Famous Examples:- Android -> Linux, Mozilla, Apache, Python, LibreOffice, VLC media player etc.
+
+
+Closed Source/Proprietary Software?
+    - Proprietary software is software that is deemed to be non-free and its creator exercises a legal monopoly with the help of copyright and intellectual property law to restrict the user from freely sharing the software or modifying it.
+    - Famous Examples:- Microsoft Office, Adobe Photoshop, Oracle etc.
+
+
+Difference between Open Source and closed source:- Source Code, Price, Development Process, Service Component, Usability, Security etc.
+
+
+Why you should contribute to Open Source? :- Gain Industry Experience, Learning, Profile Building, Networking, People Skills, Joy of giving etc.
+
+
+How you can contribute to an Open Source Project
+    - Coding based Contribution :- Adding new features, Bug-fixing, Automate Project setup, Improve tooling and testing, Review others code etc.
+    - Non-coding based Contributions :- Writing Documentation, Writing Tutorials, Mentoring Contributors, Answering Projects, Organize events/promotions etc.
+
+
+Required Skill for Open Source Contribution :- 
+    - Tangible Skills :- Programming, Version Control, Tech stack (full data science) etc.
+    - Non-tangible skills :- Hacker Mindset (think new features), Thick skinned (work even if your contribution not accepted), People skills (how to communicate) etc.
+
+
+Roles in an Open Source Project
+    Author :- The person/s or organization that created the project
+    Owner :- The owner has administrative ownership of the project
+    Maintainers :- These people are responsible for driving the vision and goals of the project
+    Contributors :-Contributors add to the project in one way or another
+    Community Members/Users :- People who use the project. They might be active in conversations or express their opinion on the project's direction
+
+
+Anatomy of an Open Source Project
+    - Licence :- If a project does not have an open-source license, then it is not open source. The license helps protect contributors and users. Businesses and savvy developers usually won't touch a project without this protection.
+    - Contributing :- These are guidelines that help people who contribute to the project know exactly what is expected from them
+    - Documentation :- A detailed description of the code in the software
+    - Code of Conduct :- A written set of rules on how everyone should behave while collaborating on the project
+
+Mostly Open Source Software are hosted on GitHub like https://github.com/scikit-learn/scikit-learn. Visit Issues, Pull requests, Discussions, Projects etc. to help with contribution.
+
+Readme :- This is a manual that explains how to get started with a project.
+
+---------------------------------------------------------------------------------------------------------
+
+How to select a project in Data Science?
+
+    - Don't be a specialist for first job (all project must be in different domain and topics like NLP, Time-series and Computer Vision, Deep Learning, ML, GANS etc.)
+    - Project Thinking (like a actual product not just a project and every small detail of it)
+    - Choose Relevant Products that comes in daily life and use case like (recommendation system or any topic that are mostly used in the industry)
+    - Choose Right Technology that are mostly used like python etc.
+    - Recency Bias (value recent thing most then past things so make project related to recent event to get attention like Olampic etc. )
+
+---------------------------------------------------------------------------------------------------------
+
+How to Talk about previous Data Science projects in the Interview?
+    Things not to do!
+    - Never show irrelevant project (according to job and company requirement)
+    - Never fully copy the project from github and any other source.
+    - Project must not be too much common like MNIST etc.
+    - be confident and explain your project in 10 to 15 minutes
+    
+    How to explain your project!
+    - What is your project and why you made this (interest or problem you face solution)?
+    - how you build the project step by step (explain the flow chart/draw on paper if available, then dive into details (data, approach/algorithm/feature engineering, how you convert this into product, data cleaning, normalize, how your product is different from others. how to server the user using website, app or chrome plugin etc. api, server, ci/cd pipeline, aws deployment etc.) ).
+    - what challenge you faced and what you have learned, impact of the project (in numbers if possible), improvements you can do?
+
+---------------------------------------------------------------------------------------------------------
+
+All about Kaggle :-
+    - Dataset
+    - Online notebook and computing
+    - Code (contains all the notebook on the given dataset)
+    - Competitions (solve the problem within time and get the price money and also test or play on past competition)
+    - Discussions (can ask your questions and give answers to others, helping other also boost your profile)
+    - Courses to learn or refer the topic for beginner
+    - Ranking (Novice < Contributor < Expert < Master < Grandmaster and note ranking start from Expert level) visit :- https://www.kaggle.com/rankings
+        - Competitions
+        - Datasets
+        - Notebooks
+        - Discussion
+    also visit :- https://www.kaggle.com/datasets/kaggle/meta-kaggle/ to get a particular type of notebook etc from the whole kaggle datasets
+        - winning solutions of kaggle Competitions
+        - Data Science Glossary on Kaggle
+        - Hidden Gems: A Collection of Underrated Notebooks
+            go to above all the three and read about it
+
+---------------------------------------------------------------------------------------------------------
+
+    Linkedin Profile
+    - need to update continuously and get best result
+    - cover image of the linkedin must tell the story about you
+    - add experience (what you have learn there)
+    - about
+    - Education (12 and graduation skip grads if it is not high) and projects you did in college\
+    - Licence and certification (from Udemy and 365datascience and Campusx and what i learnt there)
+    - Skills like python statistics machine learning deep learning programming stocks marketing gaming
+    - all give skill assessment exam for top 5 skills
+    - Endorsement and recommendation by other professionals for skills if possible
+    - Publications (add medium blog link or Publications if you had done)
+    - Projects (add your projects github link, Summary and Metric) 3 major projects and two minor projects are Good
+    - Honors and Awards if you have
+    - Interest (Build connections and follow people) follow at least 10 person of data science and one or two the best in the profession
+    - Stay active posting daily or weekly posts, commenting, say congrats and resharing etc
+    - contribute give back roadmap, views, opinions and projects
+    - like only good things on linkedin feed to it will recommend only good things
+    - Form Groups and Community if possible
+    - see what others are doing and get projects ideas and what they are learning
+    - stay in touch with jobs and read description of jobs posts
+
+---------------------------------------------------------------------------------------------------------
+
+How to get your First Job in Data Science?
+    - why you wants to do the job?
+    - be patient as multiple times one can get rejected as high as 40 interviews
+    - apply on multiple plate forms (can also try new ones where job are more) and ask for job to professionals and interviewers
+    If resume not getting selected 
+    - if you are getting rejected. then apply on other plateforms other than naukri.com prefer IITs so apply
+    - mail to HR, carrers page of websites, message etc.    
+    If you are getting rejected in the interview.
+    - means your technical skills are not good i.e. practice the questions asked in the interviews that you failed or not answered well
+    - you can ask the interviewer for the feedback at the end of interviewer
+    if soft skills are not good then give or practice interview and communication
+    participate in hackthon and sometime you can also get job if you score well 
+    go for internship from there you can also go to full time
+    go for postgraduation if ai ml or deep learning etc.
+
+---------------------------------------------------------------------------------------------------------
 1. Planning Your Website Structure
 Homepage: Introduction to your website with highlights of your latest research or blog posts.
 Blog/Articles: For posting Data Science research, tutorials, and case studies.
@@ -206,16 +336,7 @@ General Points :
 
 
 Tasks:
-    add contact pages which contain all methods to contact
-    add portfolio./about me page
-    add github page
-    add blog page
-
-    add url of github, leetcode, medium and stratascratch
-
-    Update Resume page
-        edit text
-
-        link update in the footer and popular topics
-    Update Readme
-    reduce size of images change image and pdf of resume page in readme and download section
+-   add contact pages which contain all methods to contact
+-   add portfolio(about me) page (from here will go to resume page) and add all github, all blog, url of github, leetcode, medium and stratascratch
+-   Update Resume page (edit text)  
+-   reduce size of images change image and pdf of resume page in readme and download section
