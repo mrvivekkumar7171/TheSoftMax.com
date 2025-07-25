@@ -85,9 +85,9 @@ Your domain should now point to your GitHub Pages website!
 ## 📸 Screenshots
 
 *(Optional: Add screenshots of your website homepage, resume page, and a sample blog post.)*
-![alt text](assets/thesoftmax.png)
-![alt text](assets/post.png)
-![alt text](assets/Vivek-Kumar-html.png)
+![alt text](assets/images/readme/thesoftmax.png)
+![alt text](assets/images/readme/post.png)
+![alt text](assets/images/readme/Vivek-Kumar-html.png)
 
 ## 📫 Contact
 
