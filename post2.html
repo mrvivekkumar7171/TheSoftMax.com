@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
+    </head>
+<body>
 <!-- How to select a project in Data Science?
 
     - Don't be a specialist for first job (all project must be in different domain and topics like NLP, Time-series and Computer Vision, Deep Learning, ML, GANS etc.)
@@ -37,3 +44,25 @@ How to get your First Job in Data Science?
     go for internship from there you can also go to full time
     go for postgraduation if ai ml or deep learning etc.
     -->
+    <!-- Header -->
+    <div id="header"></div>
+
+    <section class="blog-post section-header-offset">
+    <h1>Welcome to My Page</h1>
+    </section>    
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+    // Load header and footer
+    fetch('/assets/html/header.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('/assets/html/footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>

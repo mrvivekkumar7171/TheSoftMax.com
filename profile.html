@@ -1,3 +1,32 @@
-<!-- Portfolio page
-A page that show your photo and every details of you (for personal branding). (It should contain your story in the "about me" section and reason why you wants to become a data scientist). Add a video resume of 1 minute. Add courses and certification as cards in the page. heading must be link Vivek Kumar in Nutshell. The portfolio(about me) page (from here will go to resume page) and add all github, all blog, url of github, leetcode, medium and stratascratch. Share your Data Science journey, project breakdowns, and learning experiences. Use Data Science-inspired design elements (graphs, data visuals, etc.).
--->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
+    </head>
+<body>
+    <!-- Portfolio page
+    A page that show your photo and every details of you (for personal branding). (It should contain your story in the "about me" section and reason why you wants to become a data scientist). Add a video resume of 1 minute. Add courses and certification as cards in the page. heading must be link Vivek Kumar in Nutshell. The portfolio(about me) page (from here will go to resume page) and add all github, all blog, url of github, leetcode, medium and stratascratch. Share your Data Science journey, project breakdowns, and learning experiences. Use Data Science-inspired design elements (graphs, data visuals, etc.).
+    -->
+    <!-- Header -->
+    <div id="header"></div>
+
+    <section class="blog-post section-header-offset">
+    <h1>Welcome to Portfolio Page</h1>
+    </section> 
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+    // Load header and footer
+    fetch('/assets/html/header.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('/assets/html/footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>

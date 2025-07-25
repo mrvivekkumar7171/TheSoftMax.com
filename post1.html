@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
+    </head>
+<body>
 <!-- What is Open Source Software?
     - Open source software is software with source code that anyone can inspect, modify, and enhance.
     - Famous Examples:- Android -> Linux, Mozilla, Apache, Python, LibreOffice, VLC media player etc.
@@ -42,3 +49,25 @@ Mostly Open Source Software are hosted on GitHub like https://github.com/scikit-
 
 Readme :- This is a manual that explains how to get started with a project. 
 -->
+    <!-- Header -->
+    <div id="header"></div>
+
+    <section class="blog-post section-header-offset">
+    <h1>Welcome to My Page</h1>
+    </section>   
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+    // Load header and footer
+    fetch('/assets/html/header.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('/assets/html/footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
