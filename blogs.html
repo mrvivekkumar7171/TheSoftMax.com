@@ -4,7 +4,44 @@
         <!-- Favicon -->
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
     </head>
-<body>
+<style> 
+@media screen and (min-width: 768px) {
+    .blog-page .featured-content{
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: unset !important;/*not needed but exist in main.css from footer*/
+        grid-auto-rows: minmax(25rem, auto) !important;
+        gap: var(--gap) !important;
+    }
+
+    .blog-page .featured-article { /*not needed but exist in main.css from footer*/
+        grid-column: unset !important;
+        grid-row: unset !important;
+    }
+
+    .blog-page .featured-article-1 {/*not needed but exist in main.css from footer*/
+        grid-column: unset !important;
+    }
+
+    .blog-page .featured-article-3 {/*not needed but exist in main.css from footer*/
+        grid-column: unset !important;
+        grid-row: unset !important;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .blog-page .featured-content{
+        grid-template-columns: repeat(3, 1fr) !important;
+        grid-auto-rows: minmax(25rem, auto) !important;
+        gap: var(--gap) !important; 
+    }
+
+    .blog-page .featured-articles-container{/*not needed but exist in main.css from footer*/
+        grid-template-columns: unset !important;
+    }
+}
+</style>
+<body class="blog-page">
     <!-- 
         - Blog Page containing multiple blogs that must redirect to a blog page on medium
         - Regularly publish research articles, tutorials, and case studies.
@@ -12,8 +49,104 @@
     <!-- Header -->
     <div id="header"></div>
 
-    <section class="blog-post section-header-offset">
-    <h1>Welcome to My Page</h1>
+    <!-- Featured articles -->
+    <section class="featured-articles section section-header-offset">
+        <div class="featured-articles-container container d-grid">
+    <!-- Main Articles -->
+            <div class="featured-content d-grid">
+                <a href="https://medium.com/@mrvivekkumar7171/natural-language-processing-nlp-55fca6464c4c" class="article featured-article featured-article-1">
+                    <img src="./assets/images/posts/posts-1.jpg" alt="" class="article-image">
+                    <span class="article-category">Machine Learning</span>
+                    <div class="article-data-container">
+                        <div class="article-data">
+                            <span>Dec 1st 2024</span>
+                            <span class="article-data-spacer"></span>
+                            <span>8 Min read</span>
+                        </div>
+                        <h3 class="title article-title">Natural Language Processing (NLP)</h3>
+                    </div>
+                </a>
+
+                <a href="https://medium.com/@mrvivekkumar7171/recurrent-neural-networks-rnns-8f4d367aa323" class="article featured-article featured-article-2">
+                    <img src="./assets/images/tags/Data_Science.jpg" alt="" class="article-image">
+                    <span class="article-category">AI</span>
+                    <div class="article-data-container">
+                        <div class="article-data">
+                            <span>Dec 2nd 2024</span>
+                            <span class="article-data-spacer"></span>
+                            <span>4 Min read</span>
+                        </div>
+                        <h3 class="title article-title">Recurrent Neural Networks (RNNs)</h3>
+                    </div>
+                </a>
+
+                <a href="https://medium.com/@mrvivekkumar7171/convolutional-neural-networks-cnns-b660726f8e97" class="article featured-article featured-article-3">
+                    <img src="./assets/images/posts/posts-4.jpg" alt="" class="article-image">
+                    <span class="article-category">Deep Learning</span>
+                    <div class="article-data-container">
+                        <div class="article-data">
+                            <span>Dec 3rd 2024</span>
+                            <span class="article-data-spacer"></span>
+                            <span>5 Min read</span>
+                        </div>
+                        <h3 class="title article-title">Convolutional Neural Networks (CNNs)</h3>  
+                    </div>
+                </a>
+
+                <a href="https://medium.com/@mrvivekkumar7171/convolutional-neural-networks-cnns-b660726f8e97" class="article featured-article featured-article-4">
+                    <img src="./assets/images/posts/posts-4.jpg" alt="" class="article-image">
+                    <span class="article-category">Deep Learning</span>
+                    <div class="article-data-container">
+                        <div class="article-data">
+                            <span>Dec 3rd 2024</span>
+                            <span class="article-data-spacer"></span>
+                            <span>5 Min read</span>
+                        </div>
+                        <h3 class="title article-title">Convolutional Neural Networks (CNNs)</h3>  
+                    </div>
+                </a>
+
+                <a href="https://medium.com/@mrvivekkumar7171/convolutional-neural-networks-cnns-b660726f8e97" class="article featured-article featured-article-5">
+                    <img src="./assets/images/posts/posts-4.jpg" alt="" class="article-image">
+                    <span class="article-category">Deep Learning</span>
+                    <div class="article-data-container">
+                        <div class="article-data">
+                            <span>Dec 3rd 2024</span>
+                            <span class="article-data-spacer"></span>
+                            <span>5 Min read</span>
+                        </div>
+                        <h3 class="title article-title">Convolutional Neural Networks (CNNs)</h3>  
+                    </div>
+                </a>
+
+                <a href="https://medium.com/@mrvivekkumar7171/convolutional-neural-networks-cnns-b660726f8e97" class="article featured-article featured-article-6">
+                    <img src="./assets/images/posts/posts-4.jpg" alt="" class="article-image">
+                    <span class="article-category">Deep Learning</span>
+                    <div class="article-data-container">
+                        <div class="article-data">
+                            <span>Dec 3rd 2024</span>
+                            <span class="article-data-spacer"></span>
+                            <span>5 Min read</span>
+                        </div>
+                        <h3 class="title article-title">Convolutional Neural Networks (CNNs)</h3>  
+                    </div>
+                </a>
+
+                <a href="https://medium.com/@mrvivekkumar7171/convolutional-neural-networks-cnns-b660726f8e97" class="article featured-article featured-article-7">
+                    <img src="./assets/images/posts/posts-4.jpg" alt="" class="article-image">
+                    <span class="article-category">Deep Learning</span>
+                    <div class="article-data-container">
+                        <div class="article-data">
+                            <span>Dec 3rd 2024</span>
+                            <span class="article-data-spacer"></span>
+                            <span>5 Min read</span>
+                        </div>
+                        <h3 class="title article-title">Convolutional Neural Networks (CNNs)</h3>  
+                    </div>
+                </a>
+            </div>
+
+        </div>
     </section>
 
     <!-- Footer -->

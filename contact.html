@@ -1,19 +1,112 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
-    </head>
+<head>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        .contact-section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 2.3rem;
+            margin-bottom: 4rem;
+            margin-top: 3.2rem;
+        }
+
+        .contact-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            flex-direction: column; /* Vertical layout */
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            justify-items: center;
+            justify-content: right;
+            padding: 2rem 0;
+        }
+
+        .contact-item a,
+        .contact-item button {
+            background-color: var(--secondary-background-color);
+            padding: 1.2rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .contact-item a:hover,
+        .contact-item button:hover {
+            background: var(--light-color-alt);
+            color: var(--primary-background-color);
+            transform: scale(1.05);
+        }
+
+        .contact-item i {
+            font-size: var(--font-size-md);
+        }
+
+    </style>
+</head>
 <body>
-    <!-- 
-    add contact pages which contain all methods to contact
-    A simple form or contact details for professional inquiries.
-    -->
     <!-- Header -->
     <div id="header"></div>
 
-    <section class="blog-post section-header-offset">
-    <h1>Welcome to My Contact Page</h1>
+    <section class="blog-post section-header-offset contact-section">
+        <div class="contact-title">Let's Connect</div>
+        <ul class="contact-list">
+            <li class="contact-item">
+                <a href="https://www.instagram.com/mr.vivekprasad.kushwaha/" target="_blank">
+                    <i class="ri-instagram-line"></i>Instagram
+                </a>
+            </li>
+            <li class="contact-item">
+                <a href="https://leetcode.com/u/mrvivekkumar7171/" target="_blank">
+                    <i class="ri-code-line"></i>LeetCode
+                </a>
+            </li>
+            <li class="contact-item">
+                <a href="https://www.linkedin.com/in/Vivek-Kumar7171/" target="_blank">
+                    <i class="ri-linkedin-box-fill"></i>LinkedIn
+                </a>
+            </li>
+            <li class="contact-item">
+                <a href="https://medium.com/@mrvivekkumar7171" target="_blank">
+                    <i class="ri-book-open-line"></i>Medium
+                </a>
+            </li>
+            <li class="contact-item">
+                <a href="https://www.kaggle.com/vivekprasadkushwaha" target="_blank">
+                    <i class="ri-bar-chart-box-line"></i>Kaggle
+                </a>
+            </li>
+            <li class="contact-item">
+                <a href="https://github.com/mrvivekkumar7171" target="_blank">
+                    <i class="ri-github-fill"></i>GitHub
+                </a>
+            </li>
+            <li class="contact-item">
+                <a href="https://x.com/VivekKumar7171" target="_blank">
+                    <i class="ri-twitter-line"></i>Twitter
+                </a>
+            </li>
+        </ul>
+        <ul class="contact-list">
+            <li class="contact-item">
+                    <a id="emailText" class="email-text" href="mailto:mrvivekkumar7171@gmail.com">
+                        <i class="ri-mail-line"></i><span>mrvivekkumar7171@gmail.com</span>
+                    </a>
+            </li>
+        </ul>
     </section>
 
     <!-- Footer -->
@@ -28,6 +121,7 @@
     fetch('/assets/html/footer.html')
         .then(res => res.text())
         .then(data => document.getElementById('footer').innerHTML = data);
+
     </script>
 </body>
 </html>
