@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">Cancellation & Refund Policy</h3>
+                <div class="article-data">
+                    <span>July 26, 2025</span>
+                    <span class="article-data-spacer"></span>
+                    <span>The SoftMax</span>
+                </div>
+                <img src="./assets/images/posts/posts-1.jpg" alt="">
+            </div>
+
+            <div class="container">
+
+                <h4>Subscription Services</h4>
+                <p>
+                    All subscription purchases for LLM access, tools, or platform features on The SoftMax are billed in advance and are non-refundable, unless otherwise stated. Users can cancel at any time, and services will remain active until the end of the current billing cycle.
+                </p>
+
+                <h4>Pay-as-you-go Services</h4>
+                <p>
+                    For one-time or pay-per-use services (like API tokens or LLM queries), cancellations are not applicable once the service has been consumed or processed.
+                </p>
+
+                <h4>Trial Periods</h4>
+                <p>
+                    If a free trial is provided, you may cancel at any time before the trial period ends to avoid charges. After the trial, standard billing policies apply.
+                </p>
+
+                <h4>Refunds</h4>
+                <p>
+                    Refunds are only provided under the following conditions:
+                </p>
+                <ul style="padding-left: 40px;">
+                    <li style="list-style-type: disc;">You were charged incorrectly due to a technical error.</li>
+                    <li style="list-style-type: disc;">You did not receive access to the service after successful payment.</li>
+                    <li style="list-style-type: disc;">Duplicate payments were made for the same account.</li>
+                </ul>
+
+                <p>
+                    Refund requests must be submitted within 7 days of the transaction. We reserve the right to deny refund requests if we believe abuse of services has occurred.
+                </p>
+
+                <h4>Contact Us</h4>
+                <p>
+                    For cancellations or refund inquiries, please reach out to:
+                </p>
+                <p class="quote" style='display: table; margin-left: auto;'>
+                    Email: <a href="mailto:mrvivekkumar7171@gmail.com">mrvivekkumar7171@gmail.com</a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        fetch('/assets/html/header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+
+        fetch('/assets/html/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>

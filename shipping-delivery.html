@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">Shipping & Delivery Policy</h3>
+                <div class="article-data">
+                    <span>July 26, 2025</span>
+                    <span class="article-data-spacer"></span>
+                    <span>The SoftMax</span>
+                </div>
+                <img src="./assets/images/posts/posts-1.jpg" alt="">
+            </div>
+
+            <div class="container">
+
+                <h4>Digital Nature of Services</h4>
+                <p>
+                    The SoftMax offers only digital services and software. Therefore, no physical products are shipped. All services are delivered electronically through our platform or via email.
+                </p>
+
+                <h4>Delivery Timelines</h4>
+                <p>
+                    Access to purchased digital products (e.g., subscriptions, API keys, or downloadable resources) is typically granted instantly or within a few minutes after successful payment.
+                </p>
+
+                <h4>Failed Deliveries</h4>
+                <p>
+                    In case of delivery issues (e.g., service not activated, email not received), please check your spam folder or contact us within 24 hours of the transaction.
+                </p>
+
+                <h4>Support for Delivery Issues</h4>
+                <p>
+                    If you experience delays in activation or access, we encourage you to contact our team with proof of purchase for immediate assistance.
+                </p>
+
+                <h4>Contact Us</h4>
+                <p>
+                    For any shipping or delivery-related concerns:
+                </p>
+                <p class="quote" style='display: table; margin-left: auto;'>
+                    Email: <a href="mailto:mrvivekkumar7171@gmail.com">mrvivekkumar7171@gmail.com</a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        fetch('/assets/html/header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+
+        fetch('/assets/html/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
