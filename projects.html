@@ -3,15 +3,175 @@
     <head>
         <!-- Favicon -->
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon.svg">
+        <style>
+
+.project-page .trending-news-img-box {
+    height: 16rem;
+    width: 16rem;
+}
+.project-page .featured-content-title {
+    font-size: clamp(3rem, 5vw, 6rem);
+}
+
+.project-page .trending-news-data .article-title {
+    font-size: clamp(2rem, 4vw, 4rem);
+}
+
+.project-page .trending-news-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-page .trending-news-box {
+    border-bottom: 3px solid var(--transparent-light-color);
+}
+
+img:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@media screen and (min-width: 768px) {
+    .project-page .featured-content{
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: unset !important;/*not needed but exist in main.css from footer*/
+        grid-auto-rows: minmax(25rem, auto) !important;
+        gap: var(--gap) !important;
+    }
+
+    .project-page .featured-article { /*not needed but exist in main.css from footer*/
+        grid-column: unset !important;
+        grid-row: unset !important;
+    }
+
+    .project-page .featured-article-1 {/*not needed but exist in main.css from footer*/
+        grid-column: unset !important;
+    }
+
+    .project-page .featured-article-3 {/*not needed but exist in main.css from footer*/
+        grid-column: unset !important;
+        grid-row: unset !important;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .project-page .featured-content{
+        grid-template-columns: repeat(3, 1fr) !important;
+        grid-auto-rows: minmax(25rem, auto) !important;
+        gap: var(--gap) !important; 
+    }
+
+    .project-page .featured-articles-container{/*not needed but exist in main.css from footer*/
+        grid-template-columns: unset !important;
+    }
+}
+        </style>
     </head>
-<body>
-    <!-- 
-    - Project Page (add project on the project page with image after completion of the project) on clicking the project on the project page it must redirect to the github. At least 3 full detailed project is required.
-    -->
+<body class="project-page">
     <div id="header"></div>
 
-    <section class="blog-post section-header-offset">
-    <h1>Welcome to My Project Page</h1>
+    <!-- Projects Articles -->
+    <section class="featured-articles section section-header-offset">
+        <div class="featured-articles-container container d-grid">
+            <div class="sidebar d-grid">
+                <h3 class="title featured-content-title" style="border-bottom: 10px solid var(--transparent-light-color);">Top Projects</h3>
+                
+                <a href="https://github.com/mrvivekkumar7171/flight-price-prediction" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">01</span>
+                        <img src="./assets/images/projects/11.jpg" alt="Flight Price Prediction" class="article-image ">
+                    </div>
+                    <div class="trending-news-data">
+                        <h3 class="title article-title">Flight Price Prediction</h3>
+                        <div class="article-data">
+                            <span>19 Mar 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>10 Min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/mrvivekkumar7171/book-recommender-model" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">02</span>
+                        <img src="./assets/images/projects/3.jpg" alt="Book Recommender System" class="article-image ">
+                    </div>
+                    <div class="trending-news-data">
+                        <h3 class="title article-title">Book Recommender System</h3>
+                        <div class="article-data">
+                            <span>24 Mar 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>16 Min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/mrvivekkumar7171/nyc-taxi-trip-duration-prediction" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">03</span>
+                        <img src="./assets/images/projects/44.jpg" alt="NYC Taxi Trip Duration Prediction" class="article-image">
+                    </div>
+                    <div class="trending-news-data">
+                        <h3 class="title article-title">NYC Taxi Trip Duration Prediction</h3>
+                        <div class="article-data">
+                            <span>17 Apr 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>17 Min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/mrvivekkumar7171/creditcard-fraud-detection" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">04</span>
+                        <img src="./assets/images/projects/5.jpg" alt="Credit Card Fraud Detection" class="article-image ">
+                    </div>
+                    <div class="trending-news-data">
+                        <h3 class="title article-title">Credit Card Fraud Detection</h3>
+                        <div class="article-data">
+                            <span>10 Apr 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>20 Min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/mrvivekkumar7171/web-scraping" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">05</span>
+                        <img src="./assets/images/projects/6.jpg" alt="Web Scraping" class="article-image ">
+                    </div>
+                    <div class="trending-news-data">
+                        <h3 class="title article-title">Web Scraping</h3>
+                        <div class="article-data">
+                            <span>16 Mar 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>18 Min read</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
     </section>
 
     <div id="footer"></div>
